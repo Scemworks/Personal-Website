@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
-    const html = document.documentElement;
-    const themeIcon = themeToggle.querySelector("i"); // Select the icon element inside the button
-    const hamburger = document.querySelector(".hamburger");
-    const navbarNav = document.querySelector(".navbar-nav");
+    const html = document.documentElement; // Use <html> for global theme change
+    const themeIcon = themeToggle.querySelector("i"); 
 
     // Function to update the icon based on the current theme
     const updateThemeIcon = () => {
@@ -19,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Toggle theme and save preference in localStorage
     themeToggle.addEventListener("click", () => {
         html.classList.toggle("dark-theme"); // Toggle dark mode class
-        const theme = html.classList.contains("dark-theme") ? "dark" : "light";
-        localStorage.setItem("theme", theme); // Save selected theme
+        localStorage.setItem("theme", html.classList.contains("dark-theme") ? "dark" : "light"); // Save selected theme
         updateThemeIcon(); // Update the icon
     });
 
@@ -32,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateThemeIcon(); // Ensure the icon matches the current theme
 
     // Toggle visibility of the navbar menu on hamburger click
+    const hamburger = document.querySelector(".hamburger");
+    const navbarNav = document.querySelector(".navbar-nav");
+
     hamburger.addEventListener("click", () => {
         navbarNav.classList.toggle("active"); // Show/hide the menu
     });
