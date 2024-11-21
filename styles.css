@@ -72,27 +72,6 @@ body {
     font-weight: bold;
 }
 
-/* Adjust buttons for desktop screens */
-@media (min-width: 1024px) {
-    .navbar {
-        justify-content: flex-start; /* Align navbar contents */
-    }
-
-    .navbar-brand {
-        margin-right: auto; /* Push brand to the far left */
-    }
-
-    .navbar-nav {
-        margin-left: auto; /* Push buttons to the far right */
-        display: flex;
-        gap: 15px; /* Space between buttons */
-    }
-
-    .navbar-nav a.btn {
-        margin: 0; /* Reset unwanted margins */
-    }
-}
-
 .navbar-nav {
     display: flex;
     gap: 15px;
@@ -144,6 +123,72 @@ body {
     outline-offset: 2px;
 }
 
+/* Profile Card */
+.profile-card {
+    background-color: var(--card-background);
+    color: var(--card-text-color);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Add slight border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    border-color: var(--link-color); /* Highlight border on hover */
+}
+
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 1em;
+    color: #a0a0a0;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-links i {
+    font-size: 2em;
+}
+
 /* Projects Section */
 .projects-container {
     display: grid;
@@ -175,6 +220,15 @@ body {
 
 .project-card p {
     margin-bottom: 15px;
+}
+
+/* Adjust Home and GitHub buttons on desktop */
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav a {
+    margin-left: 10px;
 }
 
 /* Responsive Styles */
