@@ -44,37 +44,32 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-
-    /* Smooth transition for theme change */
+    padding-top: 70px; /* Adjusted for fixed navbar height */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Navbar */
 .navbar {
-    position: fixed; /* Fix the navbar at the top */
-    top: 0; /* Align it to the top */
-    left: 0; /* Align it to the left */
-    right: 0; /* Align it to the right */
-    z-index: 1000; /* Ensure it is above other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em;
     background-color: var(--navbar-background);
     color: var(--navbar-text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Navbar shadow */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Add padding to the body to account for the fixed navbar */
-body {
-    padding-top: 60px; /* Adjust this value based on the height of your navbar */
-    /* Other existing styles */
-}
 .navbar-brand {
     text-decoration: none;
     color: inherit;
     font-size: 1.5em;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .navbar-nav {
@@ -101,7 +96,7 @@ body {
 }
 
 .theme-toggle:hover {
-    transform: rotate(15deg) scale(1.1); /* Optional hover effect */
+    transform: rotate(15deg) scale(1.1);
 }
 
 /* Button Styling */
@@ -128,11 +123,6 @@ body {
     outline-offset: 2px;
 }
 
-.navbar .btn {
-    padding: 8px 16px;
-    font-size: 0.9em;
-}
-
 /* Profile Card */
 .profile-card {
     background-color: var(--card-background);
@@ -146,14 +136,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    /* Removed the border and border-image */
-    opacity: 0;
-    transform: translateY(20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
     animation: fadeInSlideUp 1s ease-out forwards;
 }
 
-/* Keyframes for fade and slide in effect */
 @keyframes fadeInSlideUp {
     0% {
         opacity: 0;
@@ -195,37 +181,14 @@ body {
     font-size: 2em;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar-nav {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background-color: var(--navbar-background);
-        padding: 1em;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-nav.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-}
-
+/* Projects Section */
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     width: 100%;
-    max-width: 1200px; /* Optional: Set a max width for the container */
+    max-width: 1200px;
 }
 
 .project-card {
@@ -251,6 +214,30 @@ body {
     margin-bottom: 15px;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: var(--navbar-background);
+        padding: 1em;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 @media (max-width: 480px) {
     .projects-container {
         grid-template-columns: 1fr;
@@ -258,6 +245,3 @@ body {
         padding: 0 10px;
     }
 }
-
-
-CSS code
