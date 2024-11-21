@@ -1,5 +1,3 @@
-// script.js
-
 // Function to apply the theme based on localStorage value
 function applyTheme() {
     const themeToggleIcon = document.getElementById("theme-toggle-icon");
@@ -8,23 +6,20 @@ function applyTheme() {
     if (isDark) {
         document.body.classList.add("dark-theme");
         themeToggleIcon.classList.remove("fa-moon");
-        themeToggleIcon.classList.add("fa-sun"); // Show sun icon in dark mode
+        themeToggleIcon.classList.add("fa-sun");
     } else {
         document.body.classList.remove("dark-theme");
         themeToggleIcon.classList.remove("fa-sun");
-        themeToggleIcon.classList.add("fa-moon"); // Show moon icon in light mode
+        themeToggleIcon.classList.add("fa-moon");
     }
-
-    // Add a small animation class for the body
-    document.body.classList.add("theme-transition");
-    setTimeout(() => document.body.classList.remove("theme-transition"), 500); // Remove after animation
 }
 
 // Toggle and save theme in localStorage
 document.addEventListener("DOMContentLoaded", function () {
     const themeToggle = document.getElementById("theme-toggle");
+    const navbarNav = document.getElementById("navbar-nav");
+    const hamburger = document.getElementById("hamburger");
 
-    // Check if the icon already exists
     let themeToggleIcon = document.getElementById("theme-toggle-icon");
     if (!themeToggleIcon) {
         themeToggleIcon = document.createElement("i");
@@ -33,12 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
         themeToggle.appendChild(themeToggleIcon);
     }
 
-    // Apply theme on page load
     applyTheme();
 
     themeToggle.addEventListener("click", function () {
         const isDark = document.body.classList.toggle("dark-theme");
         localStorage.setItem("theme", isDark ? "dark" : "light");
-        applyTheme(); // Update the icon and trigger animation
+        applyTheme();
+    });
+
+    // Hamburger menu toggle
+    hamburger.addEventListener("click", function () {
+        navbarNav.classList.toggle("active");
     });
 });
