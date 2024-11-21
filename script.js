@@ -1,43 +1,31 @@
-// Function to apply the theme based on localStorage value
-function applyTheme() {
-    const themeToggleIcon = document.getElementById("theme-toggle-icon");
-    const isDark = localStorage.getItem("theme") === "dark";
-
-    if (isDark) {
-        document.body.classList.add("dark-theme");
-        themeToggleIcon.classList.remove("fa-moon");
-        themeToggleIcon.classList.add("fa-sun");
-    } else {
-        document.body.classList.remove("dark-theme");
-        themeToggleIcon.classList.remove("fa-sun");
-        themeToggleIcon.classList.add("fa-moon");
-    }
-}
-
-// Toggle and save theme in localStorage
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
-    const navbarNav = document.getElementById("navbar-nav");
-    const hamburger = document.getElementById("hamburger");
+    const html = document.documentElement;
+    const hamburger = document.querySelector(".hamburger");
+    const navbarNav = document.querySelector(".navbar-nav");
 
-    let themeToggleIcon = document.getElementById("theme-toggle-icon");
-    if (!themeToggleIcon) {
-        themeToggleIcon = document.createElement("i");
-        themeToggleIcon.id = "theme-toggle-icon";
-        themeToggleIcon.classList.add("fas");
-        themeToggle.appendChild(themeToggleIcon);
-    }
-
-    applyTheme();
-
-    themeToggle.addEventListener("click", function () {
-        const isDark = document.body.classList.toggle("dark-theme");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        applyTheme();
+    // Toggle theme and save preference in localStorage
+    themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark-theme"); // Toggle dark mode class
+        const theme = html.classList.contains("dark-theme") ? "dark" : "light";
+        localStorage.setItem("theme", theme); // Save selected theme
     });
 
-    // Hamburger menu toggle
-    hamburger.addEventListener("click", function () {
-        navbarNav.classList.toggle("active");
+    // Apply saved theme on page load
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        html.classList.add("dark-theme"); // Apply dark theme if saved
+    }
+
+    // Toggle visibility of the navbar menu on hamburger click
+    hamburger.addEventListener("click", () => {
+        navbarNav.classList.toggle("active"); // Show/hide the menu
+    });
+
+    // Close the menu when a link inside it is clicked (optional)
+    navbarNav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navbarNav.classList.remove("active"); // Hide the menu
+        });
     });
 });
