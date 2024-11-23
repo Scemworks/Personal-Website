@@ -1,9 +1,3 @@
 {
-    "rewrites": [
-      {
-        "source": "/:slug",
-        "destination": "/:slug.html"
-      }
-    ]
+    "cleanUrls": true
   }
-  
