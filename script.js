@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("theme-toggle");
     const html = document.documentElement; // Use <html> for global theme change
-    const themeIcon = themeToggle.querySelector("i"); 
+    const themeIcon = themeToggle.querySelector("i");
 
     // Function to update the icon based on the current theme
     const updateThemeIcon = () => {
