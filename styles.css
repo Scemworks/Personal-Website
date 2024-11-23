@@ -294,6 +294,43 @@ footer p {
     color: var(--link-hover-color);
 }
 
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--card-background);
+}
+
+
+table tr:hover {
+    background-color: var(--link-hover-color);
+}
+
+/* Table Header */
+table th {
+    background-color: var(--button-background); /* Matching button background */
+    color: var(--button-text-color);
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Project Table Header */
+.table-header {
+    background-color: var(--button-background);  /* Matching button background */
+    color: var(--button-text-color);
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar-nav {
@@ -341,6 +378,25 @@ footer p {
 
     .navbar-brand {
         font-size: 1.3em;
+    }
+
+    /* Responsive Table */
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .project-table-header {
+        padding: 8px;
+        font-size: 1em;
+        background-color: var(--navbar-background);
     }
 }
 
